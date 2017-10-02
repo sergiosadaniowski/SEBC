@@ -96,7 +96,58 @@ Authoritative answers can be found from:
 
 ```
 
+Show the nscd service is running
 
-[ec2-user@ip-172-31-8-198 ~]$
+```
+[root@ip-172-31-8-198 ec2-user]# systemctl status nscd
+● nscd.service - Name Service Cache Daemon
+   Loaded: loaded (/usr/lib/systemd/system/nscd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2017-10-02 14:14:30 EDT; 5min ago
+ Main PID: 2445 (nscd)
+   CGroup: /system.slice/nscd.service
+           └─2445 /usr/sbin/nscd
+
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 monitoring file `/etc/hosts` (4)
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 monitoring directory `/etc` (2)
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 monitoring file `/etc/resolv.conf` (5)
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 monitoring directory `/etc` (2)
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 monitoring file `/etc/services` (6)
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 monitoring directory `/etc` (2)
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 disabled inotify-based monitoring for file `/etc/netgroup': No such file or directory
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 stat failed for file `/etc/netgroup'; will try again later: No such file or directory
+Oct 02 14:14:30 ip-172-31-8-198.us-west-2.compute.internal systemd[1]: Started Name Service Cache Daemon.
+Oct 02 14:14:49 ip-172-31-8-198.us-west-2.compute.internal nscd[2445]: 2445 checking for monitored file `/etc/netgroup': No such file or directory
+[root@ip-172-31-8-198 ec2-user]#
+
+```
+
+Show the ntpd service is running
+
+```
+[root@ip-172-31-8-198 ec2-user]# systemctl enable ntpd
+Created symlink from /etc/systemd/system/multi-user.target.wants/ntpd.service to /usr/lib/systemd/system/ntpd.service.
+[root@ip-172-31-8-198 ec2-user]# systemctl start ntpd
+[root@ip-172-31-8-198 ec2-user]# systemctl status ntpd
+● ntpd.service - Network Time Service
+   Loaded: loaded (/usr/lib/systemd/system/ntpd.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2017-10-02 14:16:35 EDT; 4s ago
+  Process: 2513 ExecStart=/usr/sbin/ntpd -u ntp:ntp $OPTIONS (code=exited, status=0/SUCCESS)
+ Main PID: 2514 (ntpd)
+   CGroup: /system.slice/ntpd.service
+           └─2514 /usr/sbin/ntpd -u ntp:ntp -g
+
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: Listen and drop on 1 v6wildcard :: UDP 123
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: Listen normally on 2 lo 127.0.0.1 UDP 123
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: Listen normally on 3 eth0 172.31.8.198 UDP 123
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: Listen normally on 4 lo ::1 UDP 123
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: Listen normally on 5 eth0 fe80::829:55ff:fe7f:3724 UDP 123
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: Listening on routing socket on fd #22 for interface updates
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal systemd[1]: Started Network Time Service.
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: 0.0.0.0 c016 06 restart
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: 0.0.0.0 c012 02 freq_set kernel 0.000 PPM
+Oct 02 14:16:35 ip-172-31-8-198.us-west-2.compute.internal ntpd[2514]: 0.0.0.0 c011 01 freq_not_set
+[root@ip-172-31-8-198 ec2-user]#
+
+```
 
 
