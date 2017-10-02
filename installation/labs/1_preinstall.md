@@ -1,6 +1,8 @@
 
 1.Check vm.swappiness on all your nodes
 
+```
+
 [ec2-user@ip-172-31-8-198 ~]$ cat /proc/sys/vm/swappiness
 1
 [ec2-user@ip-172-31-8-198 ~]$ sudo sysctl vm.swappiness=1
@@ -8,8 +10,11 @@ vm.swappiness = 1
 [ec2-user@ip-172-31-8-198 ~]$ cat /proc/sys/vm/swappiness
 1
 
+```
+
 2.Show the mount attributes of your volume(s)
 
+```
 [ec2-user@ip-172-31-8-198 ~]$ mount
 sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
 proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
@@ -41,33 +46,37 @@ mqueue on /dev/mqueue type mqueue (rw,relatime)
 tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=3045488k,mode=700,uid=1000,gid=1000)
 [ec2-user@ip-172-31-8-198 ~]$
 
+
+```
 3.If you have ext-based volumes, list the reserve space setting
 ????
 
 
 4.Disable transparent hugepage support
 
-
+```
 [ec2-user@ip-172-31-8-198 ~]$ sudo su
 [root@ip-172-31-8-198 ec2-user]#  echo never > /sys/kernel/mm/transparent_hugepage/enabled
 [root@ip-172-31-8-198 ec2-user]# cat /sys/kernel/mm/transparent_hugepage/enabled
 always madvise [never]
 [root@ip-172-31-8-198 ec2-user]# always madvise [never]
-
+```
 
 
 5.List your network interface configuration
 
+```
 [ec2-user@ip-172-31-8-198 ~]$  ip link show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
     link/ether 0a:29:55:7f:37:24 brd ff:ff:ff:ff:ff:ff
 [ec2-user@ip-172-31-8-198 ~]$
-
+```
 
 6.Show that forward and reverse host lookups are correctly resolved
 
+```
 [ec2-user@ip-172-31-8-198 ~]$ nslookup ec2-34-215-96-48.us-west-2.compute.amazonaws.com
 Server:         172.31.0.2
 Address:        172.31.0.2#53
@@ -84,6 +93,9 @@ Non-authoritative answer:
 198.8.31.172.in-addr.arpa       name = ip-172-31-8-198.us-west-2.compute.internal.
 
 Authoritative answers can be found from:
+
+```
+
 
 [ec2-user@ip-172-31-8-198 ~]$
 
