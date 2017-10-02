@@ -48,24 +48,43 @@ tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=3045488k,mode=
 4.Disable transparent hugepage support
 
 
-[ec2-user@ip-172-31-8-198 ~]$ sudo sysctl -a | grep hugepage
-vm.hugepages_treat_as_movable = 0
-vm.nr_hugepages = 0
-vm.nr_hugepages_mempolicy = 0
-vm.nr_overcommit_hugepages = 0
-[ec2-user@ip-172-31-8-198 ~]$
+[ec2-user@ip-172-31-8-198 ~]$ sudo su
+[root@ip-172-31-8-198 ec2-user]#  echo never > /sys/kernel/mm/transparent_hugepage/enabled
+[root@ip-172-31-8-198 ec2-user]# cat /sys/kernel/mm/transparent_hugepage/enabled
+always madvise [never]
+[root@ip-172-31-8-198 ec2-user]# always madvise [never]
+
 
 
 5.List your network interface configuration
-
-
-6. List your network interface configuration
 
 [ec2-user@ip-172-31-8-198 ~]$  ip link show
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 9001 qdisc pfifo_fast state UP mode DEFAULT qlen 1000
     link/ether 0a:29:55:7f:37:24 brd ff:ff:ff:ff:ff:ff
+[ec2-user@ip-172-31-8-198 ~]$
+
+
+6.Show that forward and reverse host lookups are correctly resolved
+
+[ec2-user@ip-172-31-8-198 ~]$ nslookup ec2-34-215-96-48.us-west-2.compute.amazonaws.com
+Server:         172.31.0.2
+Address:        172.31.0.2#53
+
+Non-authoritative answer:
+Name:   ec2-34-215-96-48.us-west-2.compute.amazonaws.com
+Address: 172.31.8.198
+
+[ec2-user@ip-172-31-8-198 ~]$ nslookup 172.31.8.198
+Server:         172.31.0.2
+Address:        172.31.0.2#53
+
+Non-authoritative answer:
+198.8.31.172.in-addr.arpa       name = ip-172-31-8-198.us-west-2.compute.internal.
+
+Authoritative answers can be found from:
+
 [ec2-user@ip-172-31-8-198 ~]$
 
 
