@@ -1,3 +1,6 @@
+
+```
+
 [ec2-user@ip-172-31-38-137 ~]$ sudo -u hdfs hdfs dfs -ls /user
 Found 7 items
 drwxr-xr-x   - hdfs   supergroup          0 2017-10-06 09:14 /user/haley
@@ -10,8 +13,12 @@ drwxr-x--x   - spark  spark               0 2017-10-06 09:01 /user/spark
 [ec2-user@ip-172-31-38-137 ~]$ 
 
 
+```
 
 
+
+
+```
 sergio@sergio-laptop:~/.ssh$ curl  -u admin:admin 'http://ec2-34-214-96-250.us-west-2.compute.amazonaws.com:7180/api/v8/clusters/cluster/services'
 {
   "items" : [ {
@@ -336,3 +343,7 @@ sergio@sergio-laptop:~/.ssh$ curl  -u admin:admin 'http://ec2-34-214-96-250.us-w
     "displayName" : "HDFS"
   } ]
 }
+
+
+
+```

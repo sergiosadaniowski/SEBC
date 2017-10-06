@@ -1,6 +1,14 @@
+
+```
+
 time hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar teragen -Ddfs.block.size=33554432 -Dmapred.map.tasks=12 -Dmapreduce.map.memory.mb=512 65536000 tgen
 
 
+```
+
+
+
+```
 
 [saturn@ip-172-31-38-137 ec2-user]$ time hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar teragen -Ddfs.block.size=33554432 -Dmapred.map.tasks=12 -Dmapreduce.map.memory.mb=512 65536000 tgen
 17/10/06 09:46:09 INFO client.RMProxy: Connecting to ResourceManager at ip-172-31-14-139.us-west-2.compute.internal/172.31.14.139:8032
@@ -110,6 +118,12 @@ sys	0m0.277s
 
 
 
+```
+
+
+
+```
+
 [ec2-user@ip-172-31-38-137 ~]$   sudo -u hdfs hdfs dfs -ls /user/saturn/tgen
 Found 13 items
 -rw-r--r--   3 saturn supergroup          0 2017-10-06 09:47 /user/saturn/tgen/_SUCCESS
@@ -127,6 +141,9 @@ Found 13 items
 -rw-r--r--   3 saturn supergroup  546133300 2017-10-06 09:47 /user/saturn/tgen/part-m-00011
 [ec2-user@ip-172-31-38-137 ~]$ 
 
+
+
+```
 
 
 

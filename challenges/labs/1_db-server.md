@@ -1,3 +1,6 @@
+
+
+```
 mysql> select @@hostname;
 +-------------------------------------------+
 | @@hostname                                |
@@ -20,8 +23,10 @@ mysql> show variables where Variable_name like '%host%';
 mysql> 
 
 
+```
 
 
+```
 
 mysql> SHOW VARIABLES LIKE "%version%";
 +-------------------------+------------------------------+
@@ -40,6 +45,10 @@ mysql> SHOW VARIABLES LIKE "%version%";
 mysql> 
 
 
+```
+
+
+```
 
 mysql> show databases;
 +--------------------+
@@ -57,3 +66,6 @@ mysql> show databases;
 8 rows in set (0,00 sec)
 
 mysql> 
+
+
+```

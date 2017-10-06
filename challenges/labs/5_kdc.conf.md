@@ -1,3 +1,6 @@
+
+```
+
 [ec2-user@ip-172-31-38-137 ~]$ sudo cat /var/kerberos/krb5kdc/kdc.conf 
 [kdcdefaults]
  kdc_ports = 88
@@ -13,3 +16,7 @@
   max_life = 1d 
   max_renewable_life = 7d 
 }
+
+
+
+```

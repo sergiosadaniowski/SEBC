@@ -2,6 +2,10 @@ cloud provider : AWS
 
 instances by IP address and DNS name :
 
+
+
+```
+
 Instance 1
 Public DNS (IPv4)  ec2-54-186-246-44.us-west-2.compute.amazonaws.com
 public ip : 54.186.246.44
@@ -29,8 +33,10 @@ Private DNS ip-172-31-14-139.us-west-2.compute.internal
 Private IPs 172.31.14.139
 
 
+```
 
 
+```
 Linux release : Rhel 7.2 
 
 file system capacity : 3 Discos 120 GB
@@ -46,7 +52,11 @@ rhui-REGION-rhel-server-rh-common/7Server/x86_64     Red Hat Enterprise Linux Se
 repolist: 17.483
 
 
+```
 
+
+
+```
 
 List the /etc/passwd entries for saturn and haley
 
@@ -61,3 +71,5 @@ haley:x:2900:
 saturn:x:2800:
 planets:x:2901:saturn
 comets:x:2902:haley
+
+```
