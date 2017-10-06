@@ -2,18 +2,31 @@ cloud provider : AWS
 
 instances by IP address and DNS name :
 
+Instance 1
 Public DNS (IPv4)  ec2-54-186-246-44.us-west-2.compute.amazonaws.com
 public ip : 54.186.246.44
+Private DNS  ip-172-31-9-71.us-west-2.compute.internal
+Private IPs  172.31.9.71
 
+Instance 2
 Public DNS (IPv4)   ec2-34-214-96-250.us-west-2.compute.amazonaws.com
 public ip 34.214.96.250
+Private DNS ip-172-31-38-137.us-west-2.compute.internal
+Private IPs 172.31.38.137
 
+
+Instance 3
 Public DNS (IPv4)  ec2-34-215-50-32.us-west-2.compute.amazonaws.com
 public ip   34.215.50.32
+Private DNS ip-172-31-4-34.us-west-2.compute.internal
+Private IPs 172.31.4.34
 
+
+Instance 4
 Public DNS (IPv4) ec2-34-214-97-49.us-west-2.compute.amazonaws.com
 public ip : 34.214.97.49
-
+Private DNS ip-172-31-14-139.us-west-2.compute.internal
+Private IPs 172.31.14.139
 
 
 
